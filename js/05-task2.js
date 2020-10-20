@@ -1,24 +1,40 @@
 /*
  * class
+
  * Напиши клас User для створення користувачів з наступними властивостями:
- *
- * name - рядок
- * age - число
- * followers - число
+ * - name - рядок
+ * - age - число
+ * - followers - число
+ 
  * Додай метод getInfo(), який виводить рядок:
  * User ${ім'я} is ${вік} years old and has ${кількість фоловерів} followers
  */
 
 // Write code under this line
-const User = function (name, age, followers) {
-  this.name = name;
-  this.age = age;
-  this.followers = followers;
-};
 
-User.prototype.getInfo = function () {
-  return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
-};
+// варіант 1 (через function-constructor)
+// const User = function (name, age, followers) {
+//   this.name = name;
+//   this.age = age;
+//   this.followers = followers;
+// };
+
+// User.prototype.getInfo = function () {
+//   return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
+// };
+
+// варіант 2 (через class)
+class User {
+  constructor(name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
+  }
+
+  getInfo() {
+    return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
+  }
+}
 
 console.log(typeof User);
 // 'function'

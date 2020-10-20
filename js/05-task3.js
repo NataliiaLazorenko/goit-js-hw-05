@@ -4,32 +4,58 @@
  * буде отримувати один аргумент - початковий масив товарів і записувати його у властивість items.
 
  * Додай методи класу:
- * getItems() - повертає масив поточних товарів
- * addItem(item) - отримує новий товар і додає його до поточних
- * removeItem(item) - отримує товар і, якщо він є, видаляє його із поточних
+ * - getItems() - повертає масив поточних товарів
+ * - addItem(item) - отримує новий товар і додає його до поточних
+ * - removeItem(item) - отримує товар і, якщо він є, видаляє його із поточних
  */
 
 // Write code under this line
-const Storage = function (items) {
-  this.items = items;
-};
 
-Storage.prototype.getItems = function () {
-  return this.items;
-};
+// варіант 1 (через function-constructor)
+// const Storage = function (items) {
+//   this.items = items;
+// };
 
-Storage.prototype.addItem = function (item) {
-  this.items.push(item);
-};
+// Storage.prototype.getItems = function () {
+//   return this.items;
+// };
 
-Storage.prototype.removeItem = function (item) {
-  for (const element of this.items) {
-    if (element === item) {
-      const indexOfElement = this.items.indexOf(item);
-      this.items.splice(indexOfElement, 1);
+// Storage.prototype.addItem = function (item) {
+//   this.items.push(item);
+// };
+
+// Storage.prototype.removeItem = function (item) {
+//   for (const element of this.items) {
+//     if (element === item) {
+//       const indexOfElement = this.items.indexOf(item);
+//       this.items.splice(indexOfElement, 1);
+//     }
+//   }
+// };
+
+// варіант 2 (через class)
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  addItem(item) {
+    this.items.push(item);
+  }
+
+  removeItem(item) {
+    for (const element of this.items) {
+      if (element === item) {
+        const indexOfElement = this.items.indexOf(item);
+        this.items.splice(indexOfElement, 1);
+      }
     }
   }
-};
+}
 
 console.log(typeof Storage);
 // 'function'
