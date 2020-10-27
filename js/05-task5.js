@@ -23,12 +23,12 @@ class Car {
    *  isOn - чи заведений автомобіль. Значення `true` або `false`, початкове значення false
    *  distance - пробіг в кілометрах, початкове значення `0`
    */
-  constructor({ maxSpeed, speed = 0, isOn = false, distance = 0, price }) {
-    this.speed = speed;
-    this._price = price;
-    this.maxSpeed = maxSpeed;
-    this.isOn = isOn;
-    this.distance = distance;
+  constructor(obj) {
+    this.speed = 0;
+    this._price = obj.price;
+    this.maxSpeed = obj.maxSpeed;
+    this.isOn = false;
+    this.distance = 0;
   }
 
   /*
@@ -56,10 +56,8 @@ class Car {
    * і скидувати поточну швидкість до 0
    */
   turnOff() {
-    if (this.isOn) {
-      this.isOn = false;
-      this.speed = 0;
-    }
+    this.isOn = false;
+    this.speed = 0;
   }
 
   /*
